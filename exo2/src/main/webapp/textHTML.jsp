@@ -13,8 +13,11 @@
     <%@include file="WEB-INF/styles.html" %>
 </head>
 <body>
-    <h1>Ceci est la page HTML</h1>
-
+    <div class="container">
+        <div class="col-9 p-3 offset-2 text-bg-dark rounded-3">
+            <h1>Ceci est la page HTML avec bootstrap</h1>
+        </div>
+    </div>
     <%@include file="WEB-INF/bootstrapScript.html" %>
 </body>
 </html>
