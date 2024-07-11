@@ -9,11 +9,25 @@
 <body>
     <div class="container">
         <h1>Ma liste de personnes : </h1>
-        <ul class="list-group col-5">
-            <% for(Personne p : personnes) {%>
-            <li class="list-group-item"><%= p.getPrenom() + " " + p.getNom() + " " + p.getAge() + " ans"%></li>
-            <%}%>
-        </ul>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Age</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% for(Personne p : personnes) {%>
+                <tr>
+                    <td><%= p.getPrenom() %></td>
+                    <td><%= p.getNom() %></td>
+                    <td><%= p.getAge() + " ans"%></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
