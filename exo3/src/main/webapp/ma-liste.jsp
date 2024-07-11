@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <ul class="list-group">
+        <h1>Ma liste de personnes : </h1>
+        <ul class="list-group col-5">
             <% for(Personne p : personnes) {%>
             <li class="list-group-item"><%= p.getPrenom() + " " + p.getNom() + " " + p.getAge() + " ans"%></li>
             <%}%>
