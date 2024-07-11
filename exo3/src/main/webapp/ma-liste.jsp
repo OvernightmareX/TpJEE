@@ -1,5 +1,5 @@
-<%@ page import="com.example.exo3.Personne" %>
-<jsp:useBean id="personnes" type="java.util.ArrayList<com.example.exo3.Personne>" scope="request" />
+<%@ page import="com.example.exo3.Models.Personne" %>
+<jsp:useBean id="personnes" type="java.util.ArrayList<com.example.exo3.Models.Personne>" scope="request" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Ma liste de personnes : </h1>
 
-        <table class="table table-striped">
+        <table class="table table-dark table-striped">
             <thead>
             <tr>
                 <th scope="col">Nom</th>

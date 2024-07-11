@@ -1,9 +1,10 @@
-package com.example.exo3;
+package com.example.exo3.controllers;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.exo3.Models.Personne;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

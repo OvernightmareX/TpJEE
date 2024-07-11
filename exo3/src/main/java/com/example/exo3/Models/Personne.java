@@ -1,4 +1,4 @@
-package com.example.exo3;
+package com.example.exo3.Models;
 
 public class Personne {
     private String nom;
