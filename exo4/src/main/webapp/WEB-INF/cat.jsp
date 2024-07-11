@@ -9,26 +9,31 @@
 <body>
 <div class="container">
     <h1>Ma liste de chat : </h1>
-    <table class="table table-dark table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Race</th>
-            <th scope="col">Favorite Food</th>
-            <th scope="col">Birth date</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% for(Cat c : cats) {%>
-        <tr>
-            <td><%= c.getName() %></td>
-            <td><%= c.getRace() %></td>
-            <td><%= c.getFavoriteFood()%></td>
-            <td><%= c.getBirthDate()%></td>
-        </tr>
-        <%}%>
-        </tbody>
-    </table>
+
+    <% if(cats.isEmpty()) {%>
+        <h2>Vous n'avez aucun chat dans votre liste.</h2>
+    <%} else{%>
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Race</th>
+                <th scope="col">Favorite Food</th>
+                <th scope="col">Birth date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(Cat c : cats) {%>
+            <tr>
+                <td><%= c.getName() %></td>
+                <td><%= c.getRace() %></td>
+                <td><%= c.getFavoriteFood()%></td>
+                <td><%= c.getBirthDate()%></td>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+    <%}%>
     <hr>
     <h2>Ajouter un chat</h2>
     <form class="text-bg-dark rounded p-3" action="cat-servlet" method="post">

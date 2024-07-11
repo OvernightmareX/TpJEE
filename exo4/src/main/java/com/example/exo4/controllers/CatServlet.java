@@ -21,7 +21,7 @@ public class CatServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         cats = new ArrayList<>();
-        cats.add(new Cat("Tom", "Cartoon", FoodType.JERRY, LocalDate.of(1990, 1, 1)));
+        //cats.add(new Cat("Tom", "Cartoon", FoodType.JERRY, LocalDate.of(1990, 1, 1)));
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
