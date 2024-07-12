@@ -47,11 +47,7 @@ public class DogServlet extends HttpServlet {
         String birthDateParameter = request.getParameter("birthDate");
         LocalDate birthDate = birthDateParameter.isBlank() || birthDateParameter.isEmpty() ? null : LocalDate.parse(birthDateParameter);
 
-        dogService.saveDog(Dog.builder()
-                        .name(name)
-                        .breed(breed)
-                        .birthDate(birthDate)
-                        .build());
+        dogService.saveDog(name, breed, birthDate);
 
         doGet(request, response);
     }

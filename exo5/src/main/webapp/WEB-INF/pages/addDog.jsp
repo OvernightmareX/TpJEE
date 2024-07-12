@@ -19,8 +19,8 @@
                 <input class="form-control" type="date" aria-label="birthdate" placeholder="Date de naissance" id="birthdate" name="birthDate" required>
             </div>
             <hr>
-                <button class="btn btn-outline-secondary"><i class="bi bi-plus-square"></i> Ajouter</button>
-                <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/dog"><i class="bi bi-arrow-counterclockwise"></i> Retour</a>
+                <button class="btn btn-outline-light"><i class="bi bi-plus-square"></i> Ajouter</button>
+                <a class="btn btn-outline-light" href="${pageContext.request.contextPath}/dog"><i class="bi bi-arrow-counterclockwise"></i> Retour</a>
         </form>
     </main>
 </body>

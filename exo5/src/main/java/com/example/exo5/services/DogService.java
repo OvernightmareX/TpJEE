@@ -3,6 +3,7 @@ package com.example.exo5.services;
 import com.example.exo5.entities.Dog;
 import com.example.exo5.repositories.DogRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,8 +14,12 @@ public class DogService {
         dogRepository = new DogRepository();
     }
 
-    public void saveDog(Dog dog) {
-        dogRepository.save(dog);
+    public void saveDog(String name, String breed, LocalDate birthDate) {
+        dogRepository.save(Dog.builder()
+                .name(name)
+                .breed(breed)
+                .birthDate(birthDate)
+                .build());
     }
 
     public List<Dog> getAllDogs(){

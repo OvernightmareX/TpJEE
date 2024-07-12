@@ -37,7 +37,7 @@
                     </table>
                 </c:otherwise>
             </c:choose>
-            <a href="dog/add" class="btn btn-outline-secondary"><i class="bi bi-plus-square"></i> Ajouter un chien</a>
+            <a href="dog/add" class="btn btn-outline-light"><i class="bi bi-plus-square"></i> Ajouter un chien</a>
         </main>
     </body>
 </html>
