@@ -52,7 +52,7 @@
             </select>
         </div>
         <div class="input-group mb-3">
-            <input class="form-control" type="date" aria-label="birthdate" placeholder="Birthdate" id="birthdate" name="birthdate">
+            <input class="form-control" type="date" aria-label="birthdate" placeholder="Birthdate" id="birthdate" name="birthdate" required>
         </div>
         <button class="btn btn-outline-light">Add a cat</button>
     </form>
