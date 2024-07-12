@@ -8,36 +8,37 @@ import java.util.UUID;
 
 import com.example.exo5.entities.Dog;
 import com.example.exo5.repositories.DogRepository;
+import com.example.exo5.services.DogService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "dogServlet", value = "/dog/*")
 public class DogServlet extends HttpServlet {
-    private DogRepository dogRepository;
+    private DogService dogService;
 
     @Override
     public void init() {
-        dogRepository = new DogRepository();
+        dogService = new DogService();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String pathInfo = (request.getPathInfo() != null && !request.getPathInfo().isEmpty()) ? request.getPathInfo() : "";
 
-        if(pathInfo.startsWith("/detail")) {
-            UUID id = UUID.fromString(pathInfo.substring(8));
-            request.setAttribute("dog", dogRepository.findById(Dog.class, id));
-            getServletContext().getRequestDispatcher("/WEB-INF/pages/detailDog.jsp").forward(request, response);
-            return;
+        switch (pathInfo) {
+            case "/detail":
+                UUID id = UUID.fromString(request.getParameter("id"));
+                request.setAttribute("dog", dogService.getDogById(id));
+                getServletContext().getRequestDispatcher("/WEB-INF/pages/detailDog.jsp").forward(request, response);
+                break;
+            case "/add":
+                getServletContext().getRequestDispatcher("/WEB-INF/pages/addDog.jsp").forward(request, response);
+                break;
+            default:
+                request.setAttribute("dogs", dogService.getAllDogs());
+                getServletContext().getRequestDispatcher("/WEB-INF/pages/allDog.jsp").forward(request, response);
+                break;
         }
-
-        if(pathInfo.startsWith("/add")) {
-            getServletContext().getRequestDispatcher("/WEB-INF/pages/addDog.jsp").forward(request, response);
-            return;
-        }
-
-        request.setAttribute("dogs", dogRepository.findAll(Dog.class));
-        getServletContext().getRequestDispatcher("/WEB-INF/pages/allDog.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -46,7 +47,7 @@ public class DogServlet extends HttpServlet {
         String birthDateParameter = request.getParameter("birthDate");
         LocalDate birthDate = birthDateParameter.isBlank() || birthDateParameter.isEmpty() ? null : LocalDate.parse(birthDateParameter);
 
-        dogRepository.save(Dog.builder()
+        dogService.saveDog(Dog.builder()
                         .name(name)
                         .breed(breed)
                         .birthDate(birthDate)

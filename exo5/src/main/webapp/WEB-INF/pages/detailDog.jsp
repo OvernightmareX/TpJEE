@@ -20,7 +20,7 @@
             <input class="form-control" type="date" aria-label="birthdate" value="${dog.getBirthDate()}" id="birthdate" name="birthDate" readonly>
         </div>
         <hr>
-        <a class="btn btn-outline-light" href="${pageContext.request.contextPath}/dog">Retour</a>
+        <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/dog"><i class="bi bi-arrow-counterclockwise"></i> Retour</a>
     </form>
 </main>
 </body>
