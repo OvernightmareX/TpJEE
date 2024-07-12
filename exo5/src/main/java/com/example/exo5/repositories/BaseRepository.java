@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.util.List;
+import java.util.UUID;
 
 
 public abstract class BaseRepository<T> {
@@ -47,6 +48,13 @@ public abstract class BaseRepository<T> {
     }
 
     public T findById (Class<T> classe, int id){
+        session = sessionFactory.openSession();
+        T element = session.get(classe,id);
+        session.close();
+        return element;
+    }
+
+    public T findById (Class<T> classe, UUID id){
         session = sessionFactory.openSession();
         T element = session.get(classe,id);
         session.close();
