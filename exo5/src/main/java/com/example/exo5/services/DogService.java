@@ -15,11 +15,11 @@ public class DogService {
     }
 
     public void saveDog(String name, String breed, LocalDate birthDate) {
-            dogRepository.save(Dog.builder()
-                            .name(name)
-                            .breed(breed)
-                            .birthDate(birthDate)
-                            .build());
+        dogRepository.save(Dog.builder()
+                        .name(name)
+                        .breed(breed)
+                        .birthDate(birthDate)
+                        .build());
     }
 
     public void updateDog(UUID id, String name, String breed, LocalDate birthDate) {
