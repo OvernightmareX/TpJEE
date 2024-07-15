@@ -14,16 +14,16 @@ public class DogService {
         dogRepository = new DogRepository();
     }
 
-    public void saveDog(UUID id, String name, String breed, LocalDate birthDate) {
-
-        if(id!=null)
-            dogRepository.save(new Dog(id, name, breed, birthDate));
-        else
+    public void saveDog(String name, String breed, LocalDate birthDate) {
             dogRepository.save(Dog.builder()
                             .name(name)
                             .breed(breed)
                             .birthDate(birthDate)
                             .build());
+    }
+
+    public void updateDog(UUID id, String name, String breed, LocalDate birthDate) {
+        dogRepository.save(new Dog(id, name, breed, birthDate));
     }
 
     public boolean deleteDog(UUID id) {

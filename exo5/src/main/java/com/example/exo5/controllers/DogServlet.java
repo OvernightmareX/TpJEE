@@ -47,18 +47,17 @@ public class DogServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        UUID id = null;
-        if(!request.getParameter("id").equals("null")) {
-            id = UUID.fromString(request.getParameter("id"));
-            System.out.println("in");
-        }
-
         String name = request.getParameter("name");
         String breed = request.getParameter("breed");
         String birthDateParameter = request.getParameter("birthDate");
         LocalDate birthDate = birthDateParameter.isBlank() || birthDateParameter.isEmpty() ? null : LocalDate.parse(birthDateParameter);
 
-        dogService.saveDog(id, name, breed, birthDate);
+        if(!request.getParameter("id").equals("null")) {
+            UUID id = UUID.fromString(request.getParameter("id"));
+            dogService.updateDog(id, name, breed, birthDate);
+        }
+        else
+            dogService.saveDog(name, breed, birthDate);
 
         doGet(request, response);
     }
