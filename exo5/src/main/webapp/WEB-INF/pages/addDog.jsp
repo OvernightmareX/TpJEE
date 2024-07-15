@@ -8,7 +8,7 @@
     <main class="container p-3 text-bg-dark rounded">
         <h2>Ajouter un chien</h2>
         <hr>
-        <form class="text-bg-dark rounded p-3" action="${pageContext.request.contextPath}/dog" method="post">
+        <form class="text-bg-dark rounded p-3" action="${pageContext.request.contextPath}/dog?id=null" method="post">
             <div class="input-group mb-3">
                 <input class="form-control" type="text" aria-label="name" placeholder="Nom" id="name" name="name" required>
             </div>

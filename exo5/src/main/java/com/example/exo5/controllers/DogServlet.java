@@ -4,6 +4,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import com.example.exo5.entities.Dog;
@@ -46,12 +47,18 @@ public class DogServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        UUID id = null;
+        if(!request.getParameter("id").equals("null")) {
+            id = UUID.fromString(request.getParameter("id"));
+            System.out.println("in");
+        }
+
         String name = request.getParameter("name");
         String breed = request.getParameter("breed");
         String birthDateParameter = request.getParameter("birthDate");
         LocalDate birthDate = birthDateParameter.isBlank() || birthDateParameter.isEmpty() ? null : LocalDate.parse(birthDateParameter);
 
-        dogService.saveDog(name, breed, birthDate);
+        dogService.saveDog(id, name, breed, birthDate);
 
         doGet(request, response);
     }
