@@ -24,16 +24,20 @@ public class DogServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String pathInfo = (request.getPathInfo() != null && !request.getPathInfo().isEmpty()) ? request.getPathInfo() : "";
+        UUID id;
 
         switch (pathInfo) {
             case "/detail":
-                UUID id = UUID.fromString(request.getParameter("id"));
+                id = UUID.fromString(request.getParameter("id"));
                 request.setAttribute("dog", dogService.getDogById(id));
                 getServletContext().getRequestDispatcher("/WEB-INF/pages/detailDog.jsp").forward(request, response);
                 break;
             case "/add":
                 getServletContext().getRequestDispatcher("/WEB-INF/pages/addDog.jsp").forward(request, response);
                 break;
+            case "/delete":
+                id = UUID.fromString(request.getParameter("id"));
+                dogService.deleteDog(id);
             default:
                 request.setAttribute("dogs", dogService.getAllDogs());
                 getServletContext().getRequestDispatcher("/WEB-INF/pages/allDog.jsp").forward(request, response);

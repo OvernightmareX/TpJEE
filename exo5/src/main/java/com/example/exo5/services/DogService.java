@@ -22,6 +22,10 @@ public class DogService {
                 .build());
     }
 
+    public boolean deleteDog(UUID id) {
+        return dogRepository.delete(getDogById(id));
+    }
+
     public List<Dog> getAllDogs(){
         return dogRepository.findAll(Dog.class);
     }

@@ -22,6 +22,7 @@
                             <th scope="col">Race</th>
                             <th scope="col">Date de naissance</th>
                             <th scope="col">Détails</th>
+                            <th scope="col">Suppression</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,14 +31,15 @@
                                 <td class="align-middle">${d.getName()}</td>
                                 <td class="align-middle">${d.getBreed()}</td>
                                 <td class="align-middle">${d.getBirthDate()}</td>
-                                <td class="align-middle"><a href="dog/detail?id=${d.getId()}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Détails</a></td>
+                                <td class="align-middle"><a href="${pageContext.request.contextPath}/dog/detail?id=${d.getId()}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Détails</a></td>
+                                <td class="align-middle"><a href="${pageContext.request.contextPath}/dog/delete?id=${d.getId()}" class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i></a></td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                 </c:otherwise>
             </c:choose>
-            <a href="dog/add" class="btn btn-outline-light"><i class="bi bi-plus-square"></i> Ajouter un chien</a>
+            <a href="${pageContext.request.contextPath}/dog/add" class="btn btn-outline-light"><i class="bi bi-plus-square"></i> Ajouter un chien</a>
         </main>
     </body>
 </html>
