@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,14 +15,14 @@ import java.util.UUID;
 @Entity
 public class Consultation {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id_consultation;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_consultation;
     private LocalDate dateConsultation;
     private String nameDoctor;
     private String careSheet;
     private String prescription;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_patient")
     private Patient patient;
 }

@@ -1,10 +1,7 @@
 package com.example.exo6.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +19,16 @@ public class Patient {
     private String phoneNumber;
     private String image;
 
-    @OneToMany(mappedBy = "patient")
+    @Setter
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Consultation> consultations;
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }
