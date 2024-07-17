@@ -1,4 +1,4 @@
-package com.example.exo6;
+package com.example.exo6.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

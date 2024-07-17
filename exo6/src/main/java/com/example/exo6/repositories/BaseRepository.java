@@ -1,6 +1,6 @@
 package com.example.exo6.repositories;
 
-import com.example.exo6.SessionFactorySingleton;
+import com.example.exo6.utils.SessionFactorySingleton;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
